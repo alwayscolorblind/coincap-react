@@ -1,0 +1,40 @@
+.burger-menu {
+  display: none;
+
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__element {
+    height: 3px;
+    width: 100%;
+    background-color: #000000;
+    transition: all .3s;
+    transform-origin: left;
+
+
+    &-top_active {
+      transform: rotate(45deg);
+      width: 24px;
+    }
+
+    &-center_active {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    &-bottom_active {
+      transform: rotate(-45deg);
+      width: 24px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .burger-menu {
+    display: flex;
+  }
+}

@@ -1,0 +1,22 @@
+.header__profile {
+  display: flex;
+  align-items: center;
+
+  &-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  &-logo {
+    margin-left: 15px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__profile {
+    margin-top: 20px;
+  }
+}

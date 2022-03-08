@@ -1,0 +1,25 @@
+.header__coins {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & .coin {
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .header__coins {
+    flex-direction: column;
+    align-items: flex-start;
+
+    & .coin {
+      margin-top: 20px;
+      margin-left: 0;
+    }
+  }
+}
