@@ -15,7 +15,7 @@ const Header: FC = () => {
     <div className="header">
       <Container>
         <div className="header__body">
-          <Content visible={menuVisible} setVisible={setMenuVisible} />
+          <Content visible={menuVisible} />
           <BurgerMenu onClick={() => setMenuVisible(prevState => !prevState)} />
         </div>
       </Container>

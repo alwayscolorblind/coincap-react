@@ -1,0 +1,17 @@
+.coin-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__heading {
+    padding: 16px;
+    border-top: 2px solid #e3e3e3;
+    border-bottom: 2px solid #e3e3e3;
+    font-size: 12px;
+    text-align: right;
+    background-color: #ffffff;
+
+    &_align-left {
+      text-align: left;
+    }
+  }
+}

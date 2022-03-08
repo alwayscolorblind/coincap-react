@@ -1,0 +1,48 @@
+.coin-table {
+  &__row:hover > &__element {
+    background-color: #f5f5f5;
+  }
+
+  &__element {
+    padding: 16px;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    font-size: 14px;
+    text-align: right;
+    transition: all .2s;
+    cursor: pointer;
+
+    &_align-center {
+      text-align: center;
+    }
+
+    &_add:hover {
+      background-color: #dedede !important;
+    }
+
+    &_align-left {
+      text-align: left;
+    }
+
+    &_green {
+      color: green;
+    }
+
+    &_red {
+      color: red;
+    }
+
+    &-names {
+      display: flex;
+    }
+
+    &-name {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &-symbol {
+      margin-left: 5px;
+    }
+  }
+}
