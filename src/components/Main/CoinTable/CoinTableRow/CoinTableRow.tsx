@@ -24,13 +24,7 @@ const CoinTableRow: FC<CoinTableRowProps> = ({ coin }) => {
     changePercent24Hr,
   } = coin
 
-  const priceUSDRounded = Math.round(+priceUsd * 100) / 100
-  const changePercentRounded = Math.round(+changePercent24Hr * 100) / 100
-  const marketCapRounded = Math.round(+marketCapUsd * 100) / 100
-  const volumeRounded = Math.round(+volumeUsd24Hr * 100) / 100
-  const supplyRounded = Math.round(+supply * 100) / 100
-
-  const isPercentDown = changePercentRounded < 0
+  const isPercentUp = changePercent24Hr > 0
 
   return (
     <tr className="coin-table__row" onClick={() => navigate(`coins/${id}`)}>
@@ -51,19 +45,19 @@ const CoinTableRow: FC<CoinTableRowProps> = ({ coin }) => {
         </div>
       </td>
       <td className="coin-table__element">
-        $ {priceUSDRounded}
+        $ {priceUsd}
       </td>
-      <td className={`coin-table__element coin-table__element_${isPercentDown ? 'red' : 'green'}`}>
-        {isPercentDown || '+'}{changePercentRounded}%
-      </td>
-      <td className="coin-table__element">
-        $ {marketCapRounded}
+      <td className={`coin-table__element coin-table__element_${isPercentUp ? 'green' : 'red'}`}>
+        {isPercentUp && '+'}{changePercent24Hr}%
       </td>
       <td className="coin-table__element">
-        $ {volumeRounded}
+        $ {marketCapUsd}
       </td>
       <td className="coin-table__element">
-        {supplyRounded} {symbol}
+        $ {volumeUsd24Hr}
+      </td>
+      <td className="coin-table__element">
+        {supply} {symbol}
       </td>
     </tr>
   )

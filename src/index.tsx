@@ -16,7 +16,6 @@ ReactDOM.render(
           <Route path="coins/:coinId" element={<CoinInfo />} />
           <Route path="*" element={<>Ooops!!!!!!</>}/>
         </Route>
-
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

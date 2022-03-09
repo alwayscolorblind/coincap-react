@@ -1,9 +1,8 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-import { RootState } from '..'
+import { createSlice } from '@reduxjs/toolkit'
 
 type UserState = {
   loading: boolean,
+  error: boolean,
   coins: Record<string, number>,
   account: number,
   previousAccount: number
@@ -11,6 +10,7 @@ type UserState = {
 
 const initialState: UserState = {
   loading: false,
+  error: false,
   coins: {},
   account: 0,
   previousAccount: 0,

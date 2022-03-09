@@ -1,0 +1,129 @@
+.main-information {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+
+  &__coin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &-content {
+      display: flex;
+    }
+
+    &-button {
+      padding: 12px;
+      background-color: #31c034;
+      border: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-weight: bold;
+      border-radius: 4px;
+      transition: all .3s;
+
+      &:hover {
+        background-color: #217a22;
+      }
+    }
+
+    &-name {
+      margin-left: 16px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__finance {
+    display: flex;
+    flex-direction: column;
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-price {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    &-percent {
+      margin-left: 16px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      color: #ffffff;
+
+      &_green {
+        background-color: #379d37;
+      }
+
+      &_red {
+        background-color: #be4949;
+      }
+    }
+
+    &-additional {
+      margin-top: 16px;
+      border-top: 1px solid #efefef;
+      display: flex;
+    }
+
+    &-card {
+      width: 200px;
+      padding: 16px 16px 16px 0;
+
+      p {
+        font-size: 12px;
+      }
+
+      h3 {
+        margin-top: 10px;
+      }
+
+      h5 {
+        margin-top: 5px;
+        color: #383838;
+      }
+    }
+
+    &-card:not(:first-child) {
+      margin-left: 40px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .main-information {
+    flex-direction: column;
+
+    &__finance {
+      &-content {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .main-information {
+    margin-top: 32px + 80px;
+
+    &__finance {
+      &-content {
+        margin-top: 16px;
+      }
+
+      &-additional {
+        flex-direction: column;
+      }
+
+      &-card:not(:first-child) {
+        margin-left: 0;
+      }
+    }
+  }
+}
