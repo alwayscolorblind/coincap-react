@@ -1,7 +1,7 @@
-import { CoinResponseType } from '../interfaces/coins'
+import { CoinTypeResponse, CoinType } from '../interfaces/coins'
 import { roundNumberString } from './roundNumberString'
 
-export const convertCoinToStoreType = (coin: CoinResponseType) => ({
+export const convertCoinToStoreType = (coin: CoinTypeResponse): CoinType => ({
   ...coin,
   supply: roundNumberString(coin.supply),
   maxSupply: roundNumberString(coin.maxSupply || '0'),

@@ -8,6 +8,7 @@ import { RootState } from '../../store'
 import { useParams } from 'react-router-dom'
 import Loading from '../Loading'
 import Error from '../Error'
+import CoinChart from './CoinChart';
 
 type RouteParams = {
   coinId: string,
@@ -35,6 +36,7 @@ const CoinInfo: FC = () => {
     <div className="coin-info">
       <Container>
         <MainInformation coinInfo={coin.coin!} />
+        <CoinChart />
       </Container>
     </div>
   )

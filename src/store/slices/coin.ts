@@ -1,26 +1,33 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { CoinType } from '../../interfaces/coins'
+import { CoinHistory, CoinType } from '../../interfaces/coins';
 import { getCoinInfo } from '../../services/getCoinInfo'
+import { getCoinHistory } from '../../services/getCoinHistory';
 
 type CoinState = {
   loading: boolean,
   error: boolean,
   coin: CoinType | null,
+  coinHistory: CoinHistory[],
 }
 
 const initialState: CoinState = {
   loading: true,
   error: false,
   coin: null,
+  coinHistory: [],
 }
 
 export const fetchCoinInfo = createAsyncThunk(
   'coin/fetchCoinInfo',
   async (coinId: string) => {
-    const coinInfo = await getCoinInfo(coinId)
+    const coin = await getCoinInfo(coinId)
+    const coinHistory = await getCoinHistory(coinId)
 
-    return coinInfo
+    return {
+      coin,
+      coinHistory,
+    }
   }
 )
 
@@ -37,7 +44,8 @@ export const coinSlice = createSlice({
     builder.addCase(fetchCoinInfo.fulfilled, (state, { payload }) => {
       state.error = false
       state.loading = false
-      state.coin = payload
+      state.coin = payload.coin
+      state.coinHistory = payload.coinHistory
     })
 
     builder.addCase(fetchCoinInfo.rejected, (state) => {
