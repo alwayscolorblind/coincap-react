@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import { CoinHistory, CoinType } from '../../interfaces/coins';
 import { getCoinInfo } from '../../services/getCoinInfo'
@@ -9,6 +9,7 @@ type CoinState = {
   error: boolean,
   coin: CoinType | null,
   coinHistory: CoinHistory[],
+  tempCoin: CoinType | null,
 }
 
 const initialState: CoinState = {
@@ -16,6 +17,7 @@ const initialState: CoinState = {
   error: false,
   coin: null,
   coinHistory: [],
+  tempCoin: null,
 }
 
 export const fetchCoinInfo = createAsyncThunk(
@@ -34,7 +36,14 @@ export const fetchCoinInfo = createAsyncThunk(
 export const coinSlice = createSlice({
   name: 'coin',
   initialState,
-  reducers: {},
+  reducers: {
+    addTempCoin: (state, { payload }: PayloadAction<CoinType>) => {
+      state.tempCoin = payload
+    },
+    removeTempCoin: (state) => {
+      state.tempCoin = null
+    },
+  },
   extraReducers: (builder => {
     builder.addCase(fetchCoinInfo.pending, (state) => {
       state.error = false
@@ -55,4 +64,10 @@ export const coinSlice = createSlice({
   })
 })
 
+export const {
+  addTempCoin,
+  removeTempCoin,
+} = coinSlice.actions
+
 export const coinReducer = coinSlice.reducer
+

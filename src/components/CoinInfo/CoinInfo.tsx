@@ -22,7 +22,7 @@ const CoinInfo: FC = () => {
 
   useEffect(() => {
     dispatch(fetchCoinInfo(params.coinId || ''))
-  },[dispatch])
+  },[dispatch, params])
 
   if (coin.loading) {
     return <Loading />

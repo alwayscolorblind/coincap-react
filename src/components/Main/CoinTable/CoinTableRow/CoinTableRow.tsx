@@ -1,9 +1,12 @@
 import React, { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import { CoinType } from '../../../../interfaces/coins'
 
 import './styles.scss'
-import { useNavigate } from 'react-router-dom'
+import { addTempCoin } from '../../../../store/slices/coin'
+import { showAddModal } from '../../../../store/slices/user'
 
 type CoinTableRowProps = {
   coin: CoinType
@@ -11,6 +14,8 @@ type CoinTableRowProps = {
 
 const CoinTableRow: FC<CoinTableRowProps> = ({ coin }) => {
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
 
   const {
     id,
@@ -31,7 +36,8 @@ const CoinTableRow: FC<CoinTableRowProps> = ({ coin }) => {
       <td
         onClick={(e) => {
           e.stopPropagation()
-          console.log('hello')
+          dispatch(addTempCoin(coin))
+          dispatch(showAddModal())
         }}
         className="coin-table__element coin-table__element_align-center coin-table__element_add"
       >

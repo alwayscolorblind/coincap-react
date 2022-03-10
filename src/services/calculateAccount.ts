@@ -2,6 +2,8 @@ import { COINCAP_ASSETS } from '../constants/endpoints'
 import { CoinTypeResponse } from '../interfaces/coins'
 
 export const calculateAccount = async (account: Record<string, number>) => {
+  if (Object.keys(account).length === 0) return 0
+
   const response = await fetch(`${COINCAP_ASSETS}/?ids=${Object.keys(account).join()}`)
   const json = await response.json()
   const data = json.data as CoinTypeResponse[]

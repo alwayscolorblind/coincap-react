@@ -7,6 +7,7 @@ import './styles.scss'
 import Pagination from './Pagination'
 
 import { COINS_PER_PAGE, MAX_LIMIT } from '../../constants/constants'
+import AddModal from '../AddModal'
 
 type MainProps = {
 
@@ -19,6 +20,7 @@ const Main: FC<MainProps> = () => {
         <div className="main__body">
           <CoinTable />
           <Pagination lastPage={MAX_LIMIT / COINS_PER_PAGE}/>
+          <AddModal />
         </div>
       </Container>
     </div>
