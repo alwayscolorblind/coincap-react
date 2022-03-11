@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.699b5ddf.css",
-    "main.js": "/static/js/main.a09d36f8.js",
-    "index.html": "/index.html",
-    "main.699b5ddf.css.map": "/static/css/main.699b5ddf.css.map",
-    "main.a09d36f8.js.map": "/static/js/main.a09d36f8.js.map"
+    "main.css": "/coincap-react/static/css/main.699b5ddf.css",
+    "main.js": "/coincap-react/static/js/main.bb826bcb.js",
+    "index.html": "/coincap-react/index.html",
+    "main.699b5ddf.css.map": "/coincap-react/static/css/main.699b5ddf.css.map",
+    "main.bb826bcb.js.map": "/coincap-react/static/js/main.bb826bcb.js.map"
   },
   "entrypoints": [
     "static/css/main.699b5ddf.css",
-    "static/js/main.a09d36f8.js"
+    "static/js/main.bb826bcb.js"
   ]
 }
