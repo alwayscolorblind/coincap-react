@@ -9,7 +9,8 @@ export type UserState = {
   coins: Record<string, number>,
   account: number,
   previousAccount: number,
-  addShown: boolean
+  addShown: boolean,
+  userCoinsShown: boolean,
 }
 
 type AddCoinPayload = {
@@ -29,6 +30,7 @@ const initialState: UserState = {
   account: 0,
   previousAccount: 0,
   addShown: false,
+  userCoinsShown: false,
 }
 
 export const calculateUserAccount = createAsyncThunk(
@@ -80,7 +82,13 @@ export const userSlice = createSlice({
     setUserDataFromStorage: (state, { payload }: PayloadAction<UserStorageType>) => {
       state.coins = payload.coins
       state.previousAccount = payload.previousAccount
-    }
+    },
+    openUserCoinsModal: (state) => {
+      state.userCoinsShown = true
+    },
+    closeUserCoinsModal: (state) => {
+      state.userCoinsShown = false
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(calculateUserAccount.pending, (state) => {
@@ -88,7 +96,7 @@ export const userSlice = createSlice({
       state.error = false
     })
 
-    builder.addCase(calculateUserAccount.fulfilled, (state, { payload }) => {
+    builder.addCase(calculateUserAccount.fulfilled, (state) => {
       state.loading = false
       state.error = false
     })
@@ -108,6 +116,8 @@ export const {
   showAddModal,
   closeAddModal,
   setUserDataFromStorage,
+  openUserCoinsModal,
+  closeUserCoinsModal,
 } = userSlice.actions
 
 export const userReducer = userSlice.reducer

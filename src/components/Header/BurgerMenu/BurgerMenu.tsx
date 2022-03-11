@@ -1,25 +1,23 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+
+import { toggleMenu } from '../../../store/slices/ui';
+import { RootState } from '../../../store';
 
 import './styles.scss'
 
-type BurgerMenuProps = {
-  onClick: () => void
-}
-
-const BurgerMenu: FC<BurgerMenuProps> = ({ onClick }) => {
-  const [active, setActive] = useState(false)
+const BurgerMenu: FC = () => {
+  const ui = useSelector((state: RootState) => state.ui)
+  const dispatch = useDispatch()
 
   return (
     <div
       className="burger-menu"
-      onClick={() => {
-        setActive(prevState => !prevState)
-        onClick()
-      }}
+      onClick={() => dispatch(toggleMenu())}
     >
-      <span className={`burger-menu__element${active ? ' burger-menu__element-top_active' : ''}`}/>
-      <span className={`burger-menu__element${active ? ' burger-menu__element-center_active' : ''}`}/>
-      <span className={`burger-menu__element${active ? ' burger-menu__element-bottom_active' : ''}`}/>
+      <span className={`burger-menu__element${ui.menuShown ? ' burger-menu__element-top_active' : ''}`}/>
+      <span className={`burger-menu__element${ui.menuShown ? ' burger-menu__element-center_active' : ''}`}/>
+      <span className={`burger-menu__element${ui.menuShown ? ' burger-menu__element-bottom_active' : ''}`}/>
     </div>
   )
 }

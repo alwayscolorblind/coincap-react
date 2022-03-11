@@ -1,13 +1,15 @@
 import React, { FC } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import BriefcaseSVG from '../../../../assets/svg/BriefcaseSVG'
 import { RootState } from '../../../../store'
+import { openUserCoinsModal } from '../../../../store/slices/user'
 
 import "./styles.scss"
 
 const Profile: FC = () => {
   const user = useSelector((state: RootState) => state.user)
+  const dispatch = useDispatch()
 
   const accountRounded = Math.round(user.account * 100) / 100
 
@@ -26,7 +28,10 @@ const Profile: FC = () => {
         <p>{isAccountDown || '+'}{accountDifferenceRounded}$ ({accountPercentageRounded}%)</p>
       </div>
 
-      <div className="header__profile-logo">
+      <div
+        className="header__profile-logo"
+        onClick={() => dispatch(openUserCoinsModal())}
+      >
         <BriefcaseSVG width="25px" height="25px"/>
       </div>
     </div>

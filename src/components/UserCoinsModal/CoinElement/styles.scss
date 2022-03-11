@@ -1,0 +1,31 @@
+.coin-element {
+  width: 100%;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    display: flex;
+  }
+
+  &__name {
+    text-transform: capitalize;
+  }
+
+  &__count {
+    margin-left: 16px;
+  }
+
+  &__remove {
+    font-size: 16px;
+    color: red;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &:not(:first-child) {
+    border-top: 1px solid #ececec;
+  }
+}

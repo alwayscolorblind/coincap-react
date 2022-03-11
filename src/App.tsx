@@ -9,13 +9,21 @@ import Loading from './components/Loading'
 import Error from './components/Error'
 import { UserStorageType } from './interfaces/user'
 
+const initialUserData: UserStorageType = {
+  coins: {},
+  previousAccount: 0,
+}
+
 function App() {
   const user = useSelector((state: RootState) => state.user)
   const dispatch = useDispatch()
 
   useEffect(() => {
     const userDataFromStorage = localStorage.getItem('user')
-    const userData: UserStorageType = userDataFromStorage ? JSON.parse(localStorage.getItem('user')!) : {}
+    const userData: UserStorageType = userDataFromStorage ? JSON.parse(userDataFromStorage)
+      : initialUserData
+
+    console.log(userDataFromStorage)
 
     dispatch(calculateUserAccount({ coins: userData.coins }))
     dispatch(setUserDataFromStorage(userData))

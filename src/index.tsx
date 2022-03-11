@@ -14,11 +14,12 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />}>
+          <Route path="" element={<Navigate to="/coincap-react" />}/>
+          <Route path="/coincap-react" element={<App />}>
             <Route path="" element={<Main />} />
             <Route path="coins" element={<Navigate to="/" />} />
             <Route path="coins/:coinId" element={<CoinInfo />} />
-            <Route path="*" element={<>Ooops!!!!!!</>}/>
+            <Route path="*" element={<Navigate to="/" />}/>
           </Route>
         </Routes>
       </BrowserRouter>

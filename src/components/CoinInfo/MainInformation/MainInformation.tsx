@@ -1,6 +1,9 @@
 import React, { FC } from 'react'
+import { useDispatch } from 'react-redux'
 
 import { CoinType } from '../../../interfaces/coins'
+import { addTempCoin } from '../../../store/slices/coin'
+import { showAddModal } from '../../../store/slices/user'
 
 import './styles.scss'
 
@@ -9,13 +12,25 @@ type MainInformationProps = {
 };
 
 const MainInformation: FC<MainInformationProps> = ({ coinInfo }) => {
+  const dispatch = useDispatch()
+
   const isPercentUp = coinInfo.changePercent24Hr > 0
+
+  const handleClick = () => {
+    dispatch(addTempCoin(coinInfo))
+    dispatch(showAddModal())
+  }
 
   return (
     <div className="main-information">
       <div className="main-information__coin">
         <div className="main-information__coin-content">
-          <button className="main-information__coin-button">+ Add</button>
+          <button
+            className="main-information__coin-button"
+            onClick={handleClick}
+          >
+            + Add
+          </button>
 
           <div className="main-information__coin-name">
             <h2>{coinInfo.name}</h2>

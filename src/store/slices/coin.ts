@@ -1,4 +1,8 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {
+  createAsyncThunk,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit'
 
 import { CoinHistory, CoinType } from '../../interfaces/coins';
 import { getCoinInfo } from '../../services/getCoinInfo'

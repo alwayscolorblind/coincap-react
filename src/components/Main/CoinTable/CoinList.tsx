@@ -1,5 +1,7 @@
 import React, { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
+
 
 import { fetchCoinsPerPage } from '../../../store/slices/coins'
 import { RootState } from '../../../store'
@@ -8,7 +10,6 @@ import Error from '../../Error'
 
 import CoinTableRow from './CoinTableRow'
 import './styles.scss'
-import { useSearchParams } from 'react-router-dom'
 
 const CoinTable: FC = () => {
   const [searchParams] = useSearchParams()
@@ -31,7 +32,7 @@ const CoinTable: FC = () => {
   return (
     <table className="coin-table">
       <thead>
-      <tr>
+      <tr className="coin-table__heading-row">
         <th className="coin-table__heading coin-table__heading_sticky-left"/>
         <th className="coin-table__heading coin-table__heading_align-left">#</th>
         <th className="coin-table__heading coin-table__heading_align-left">Name</th>

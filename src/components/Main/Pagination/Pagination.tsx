@@ -17,22 +17,22 @@ const Pagination: FC<PaginationProps> = ({
   const currentPage = +(searchParams.get('page') || 1)
 
   const handleNext = () => {
-    navigate(`/?page=${currentPage + 1}`)
+    navigate(`/coincap-react?page=${currentPage + 1}`)
   }
 
   const handlePrev = () => {
     if (currentPage - 1 === 1) {
-      return navigate('/')
+      return navigate('/coincap-react')
     }
-    navigate(`/?page=${currentPage - 1}`)
+    navigate(`/coincap-react?page=${currentPage - 1}`)
   }
 
   const handleGoToFirst = () => {
-    navigate('/')
+    navigate('/coincap-react')
   }
 
   const handleGoToLast = () => {
-    navigate(`/?page=${lastPage}`)
+    navigate(`/coincap-react?page=${lastPage}`)
   }
 
   return (

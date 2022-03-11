@@ -10,7 +10,7 @@ const Error: FC = () => {
       <Container>
         <div className="error__content">
           <h1>
-            Ooops something went wrong...
+            Ooops something went wrong... Reload the page
           </h1>
         </div>
       </Container>
